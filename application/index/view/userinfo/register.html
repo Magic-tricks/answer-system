@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><!--Head--><head>
+    <meta charset="utf-8">
+    <title>欢迎注册</title>
+    <meta name="description" content="login page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__INDEX__/style/bootstrap.css" rel="stylesheet">
+    <link href="__INDEX__/style/font-awesome.css" rel="stylesheet">
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__INDEX__/style/beyond.css" rel="stylesheet">
+    <link href="__INDEX__/style/demo.css" rel="stylesheet">
+    <link href="__INDEX__/style/animate.css" rel="stylesheet">
+    <script src="__INDEX__/js/jquery.js"></script>
+</head>
+<!--Head Ends-->
+<!--Body-->
+
+<body>
+<div class="login-container animated fadeInDown">
+    <form action="" method="post">
+        <div class="loginbox bg-white">
+            <div class="loginbox-title">SIGN UP</div>
+            <div class="loginbox-textbox">
+                <input  required="required" class="form-control" placeholder="username" name="username" type="text">
+            </div>
+            <div class="loginbox-textbox">
+                <input class="form-control" required="required"   placeholder="请输入密码" id="password" name="password" type="password">
+            </div>
+            <div class="loginbox-textbox">
+                <input class="form-control" required="required"  placeholder="确认密码" id="confirmPassword"  type="password">
+                <span id="confirm"></span>
+            </div>
+            <div class="loginbox-textbox">
+                <input class="form-control" required="required"  placeholder="请输入班级名称" name="class" type="text">
+            </div>
+            <div class="loginbox-textbox">
+               <select name="sex">
+                   <option value="男">男</option>
+                   <option value="女">女</option>
+               </select>
+            </div>
+            <div class="loginbox-textbox">
+                <input style="width:100px;float:left;" class="form-control" placeholder="验证码" name="code" type="text">
+                <img style="float:left;cursor:pointer" width="120px" src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?'+Math.random()">
+            </div>
+            <br>
+            <div class="loginbox-submit" style="margin-top: 10px" >
+                <input class="btn btn-primary btn-block" value="Register" type="submit">
+            </div>
+        </div>
+        <div class="logobox">
+            <h4><p class="text-center">实验答题系统</p></h4>
+        </div>
+    </form>
+</div>
+<!--Basic Scripts-->
+<script src="__INDEX__/style/jquery.js"></script>
+<script src="__INDEX__/style/bootstrap.js"></script>
+<script src="__INDEX__/style/jquery_002.js"></script>
+<!--Beyond Scripts-->
+<script src="__INDEX__/style/beyond.js"></script>
+
+
+
+
+</body><!--Body Ends--></html>
+<script>
+    $("#confirmPassword").blur(function(){
+
+        var password =$("#password").val();
+        var confirmPassword=$("#confirmPassword").val();
+        if(password != confirmPassword)
+        {
+            $("#confirm").html("两次输入密码不一致!").css("color","red");
+        }
+    })
+
+    $("#password").focus(function(){
+
+
+            $("#confirm").html("");
+
+    })
+
+</script>

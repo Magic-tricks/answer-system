@@ -1,0 +1,46 @@
+
+<div class="nav-fixed">
+    <div class="navContent" id="navContent">
+        <img src="__INDEX__/images/logoa.jpg">
+        <!--<span class="navLogo"><a href="/"></a></span>-->
+        <ul class="nav" id="nav">
+            <li><a href="{:url('Index/index')}">课程</a></li>
+            <li class="cur"><a href="{:url('Userinfo/index')}">个人中心</a></li>
+            <li><a href="javascript:;">问答</a></li>
+            <li><a href="http://www.usaas.net" target="_blank">U-SaaS</a></li>
+        </ul>
+        <!--已登录begin-->
+        <div class="loginedCol">
+            <ul class="logined clearfix">
+                <li class="my_message">
+                    <a href="javascript:;" title="我的消息" target="_self">
+                        <i class="msg_icon" style="display: inline;">25</i>
+                        <span class="msg_txt" style="display: block;">我的消息</span>
+                    </a>
+                </li>
+                <li><a href="#" style="color:#016ab5;">积分：{$userRes.score}</a>
+                </li>
+                <li class="my_card">
+                    <a id="myCard" class="text-ellipsis" href="#" target="_self">
+                        <img src="{if condition="$userRes['url'] != ''"}__UPLOADS__/{$userRes.url} {else} http://www.shiyanbar.com/images/user_head/user_head6.png{/if}" width="24" height="24">
+
+                        <span style="text-overflow:ellipsis;white-space: nowrap;width:60px;">{$Request.session.user}    </span>
+                          <span id="logout">退出登录</span>
+                    </a>
+
+
+                </li>
+
+            </ul>
+        </div>
+        <!-- 已登录显示end -->
+
+    </div>
+</div>
+<script>
+    $("#logout").click(function()
+    {
+        window.location.href="{:url('Index/logout')}";
+    })
+
+</script>
